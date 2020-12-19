@@ -1,6 +1,6 @@
 #include<stdio.h>
 int main()
-{
+{ //Easy af program
     int n,p,count=0,front,back;
     scanf("%d",&n,&p);
     front=p/2;
