@@ -1,0 +1,38 @@
+#include<stdio.h>
+int main()
+{
+    int n,min,i,No_of_sticks=0,j,k;
+    scanf("%d",&n);
+    int arr[n];
+    for ( i = 0; i <n; i++)
+    scanf("%d",&arr[i]);
+    while(1)
+    {
+        for ( k = 0; k <n; k++)
+        {
+            if(arr[k]>0)
+            {
+                min=arr[k];
+                break;
+            }
+
+        }
+        for (j=k; j < n; j++)
+        {
+            if(min>arr[j] && arr[j]>0)
+            min=arr[j];
+        }
+        if((n-No_of_sticks)!=0)
+        printf("%d\n",n-No_of_sticks);
+        else
+        {
+            break;
+        }
+        for ( i = 0; i < n; i++)
+        {
+            arr[i]=arr[i]-min;
+            if(arr[i]==0)
+            No_of_sticks++;
+        }
+    }
+}
