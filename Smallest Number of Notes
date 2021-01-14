@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int n,sum=0;
+		cin>>n;
+		sum=sum+n/100;
+		n%=100;
+		sum=sum+n/50;
+		n%=50;
+		sum=sum+n/10;
+		n%=10;
+		sum=sum+n/5;
+		n%=5;
+		sum=sum+n/2;
+		sum+=n%2;
+		cout<<sum<<endl;
+	}
+}
