@@ -9,15 +9,15 @@
 #include<bits/stdc++.h>
 // #include<ext/pb_ds/assoc_container.hpp>
 // #include<ext/pb_ds/tree_policy.hpp>
-//#pragma GCC optimize("Ofast")
-//#pragma GCC optimize ("unroll-loops")
-//#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
-//#pragma comment(linker, "/stack:200000000")
+#pragma GCC optimize("Ofast")
+#pragma GCC optimize ("unroll-loops")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+#pragma comment(linker, "/stack:200000000")
 using namespace std;
 using namespace chrono;
 // using namespace __gnu_pbds;
 
-#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define ArchishmanSengupta() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define MOD 1000000007
 #define MOD1 998244353
 #define INF 1e18
@@ -64,6 +64,7 @@ void _print(double t) {cerr << t;}
 void _print(ull t) {cerr << t;}
 
 template <class T, class V> void _print(pair <T, V> p);
+//template<typename T> class Node{T data}; Node<T> *next; //LL
 template <class T> void _print(vector <T> v);
 template <class T> void _print(set <T> v);
 template <class T, class V> void _print(map <T, V> v);
@@ -94,31 +95,52 @@ ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n
 /*--------------------------------------------------------------------------------------------------------------------------*/
 int i;
 int mod;
-void solve() {
-	int s1, s2, s3, s4;
-	cin >> s1 >> s2 >> s3 >> s4;
-	debug(s1)
-	debug(s2)
-	debug(s3)
-	debug(s4)
-	cout << (min(s1, s2) < max(s3, s4) and min(s2, s4) < max(s1, s2) ? "YES" : "NO") << nline;
 
+//helper method
+void solve() {
+
+	// * * * n * * * 1 * *
+	int n, count = 0;
+	cin >> n;
+
+	vector<int> a(n);
+	fo(i, n) {
+		cin >> a[i];
+	}
+	int index1 = 0, index2 = 0;
+
+	fo(i, n) {
+		if (a[i] < a[index1])
+			index1 = i;
+		debug(index1)
+		if (a[i] > a[index2])
+			index2 = i;
+		debug(index2)
+	}
+	int min1 = min(index1, index2);
+	debug(min1)
+	int max1 = max(index1, index2);
+	debug(max1)
+	int res1 = n - min1, res2 = max1 + 1, res3 = min1 + 1 + n - max1;
+	debug(res1) debug(res2) debug(res3)
+	cout << min(res1, min(res2, res3)) << nline;
 }
 
-signed main() {
+int main() {
 #ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 	freopen("error.txt", "w", stderr);
 #endif
-	fastio();
-	fastio();
+	ArchishmanSengupta();
+	ArchishmanSengupta();
 	auto start1 = high_resolution_clock::now();
 	ll t = 1;
 	cin >> t;
 	while (t--) {
 		solve();
 	}
+
 	auto stop1 = high_resolution_clock::now();
 	auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifdef archishman1808

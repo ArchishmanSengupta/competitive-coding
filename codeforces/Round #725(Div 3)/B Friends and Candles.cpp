@@ -1,3 +1,4 @@
+
 // ######      ###      #######    #######    ##     #     #####        ###     ##### //
 // #     #    #   #          #        #       # #    #    #     #      #   #     ###  //
 // #     #   #     #        #         #       #  #   #   #       #    #     #    ###  //
@@ -9,15 +10,18 @@
 #include<bits/stdc++.h>
 // #include<ext/pb_ds/assoc_container.hpp>
 // #include<ext/pb_ds/tree_policy.hpp>
-//#pragma GCC optimize("Ofast")
-//#pragma GCC optimize ("unroll-loops")
-//#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
-//#pragma comment(linker, "/stack:200000000")
+#pragma GCC optimize("Ofast")
+#pragma GCC optimize ("unroll-loops")
+#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+#pragma comment(linker, "/stack:200000000")
+#include <ext/pb_ds/assoc_container.hpp> // Common file
+#include <ext/pb_ds/tree_policy.hpp>
+#include <functional>
 using namespace std;
 using namespace chrono;
-// using namespace __gnu_pbds;
+using namespace __gnu_pbds;
 
-#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define ArchishmanSengupta() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 #define MOD 1000000007
 #define MOD1 998244353
 #define INF 1e18
@@ -64,6 +68,7 @@ void _print(double t) {cerr << t;}
 void _print(ull t) {cerr << t;}
 
 template <class T, class V> void _print(pair <T, V> p);
+//template<typename T> class Node{T data}; Node<T> *next; //LL
 template <class T> void _print(vector <T> v);
 template <class T> void _print(set <T> v);
 template <class T, class V> void _print(map <T, V> v);
@@ -94,31 +99,51 @@ ll phin(ll n) {ll number = n; if (n % 2 == 0) {number /= 2; while (n % 2 == 0) n
 /*--------------------------------------------------------------------------------------------------------------------------*/
 int i;
 int mod;
+
+//helper method
 void solve() {
-	int s1, s2, s3, s4;
-	cin >> s1 >> s2 >> s3 >> s4;
-	debug(s1)
-	debug(s2)
-	debug(s3)
-	debug(s4)
-	cout << (min(s1, s2) < max(s3, s4) and min(s2, s4) < max(s1, s2) ? "YES" : "NO") << nline;
+	//4 2 5 4
+	// sum =16
+	// sum/n=4  elememts > sum count++;
+	ll n;
+	cin >> n;
+	vector<ll> a(n);
+	for (auto &val : a)
+		cin >> val;
+
+	int64_t sum = accumulate(all(a), 0ll);
+	if (sum % n != 0) {
+		cout << -1 << nline;
+		return;
+	}
+	sum /= n;
+	debug(sum);
+	int count = 0;
+	fo(i, n)
+	if (a[i] > sum) {
+		count++;
+	}
+
+	cout << count << nline;
+	debug(count)
 
 }
 
-signed main() {
+int main() {
 #ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 	freopen("error.txt", "w", stderr);
 #endif
-	fastio();
-	fastio();
+	ArchishmanSengupta();
+	ArchishmanSengupta();
 	auto start1 = high_resolution_clock::now();
 	ll t = 1;
 	cin >> t;
 	while (t--) {
 		solve();
 	}
+
 	auto stop1 = high_resolution_clock::now();
 	auto duration = duration_cast<microseconds>(stop1 - start1);
 #ifdef archishman1808
