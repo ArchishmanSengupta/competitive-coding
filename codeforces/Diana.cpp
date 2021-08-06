@@ -1471,3 +1471,17 @@ int main()
 	//cerr << "Time: " << duration . count() / 1000 << endl;
 #endif
 }
+
+
+void solve(){
+
+int n;
+cin>>n;
+
+
+for(int i=0;i<n;i++){
+
+	int masoka anad fi;aslkjhidskjh
+	
+}
+}
