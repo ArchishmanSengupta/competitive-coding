@@ -8,7 +8,6 @@ void solve() {
 
 	tuple<int, int, int, int> tupi(3, 4, 5, 6);
 	cout << tuple_size<decltype(tupi)>::value;
-
 	cout << endl;
 
 	long n = 4, m = 5, i, j;
