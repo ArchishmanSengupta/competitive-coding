@@ -1,3 +1,4 @@
+package rmi_implementation_java;
 //-------SERVER RMI IMPLEMENTATION----------------
 import java.rmi.*;  
 import java.rmi.server.*;  
