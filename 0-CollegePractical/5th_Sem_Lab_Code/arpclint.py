@@ -1,3 +1,4 @@
+#-------------KINDLY CHECK THE INDENTATION OF THE CODE YOURSELF----------------
 import socket
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 s.connect(('localhost',1234))
